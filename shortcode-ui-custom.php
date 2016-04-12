@@ -2,27 +2,41 @@
 /**
  * Plugin Name: Shortcode UI Custom
  * Version: v1.0
- * Description: Adds [shortcake_dev] example shortcode to see Shortcode UI in action
- * Author: Zoltan Balogh
- * Author URI: http://birdcreation.com/
+ * Description: Adds custom shortcodes and also adds said shortcodes to Shorcode UI.
+ * Author: Lateral
+ * Author URI: http://lateral-inc.com/
  * Text Domain: shortcode-ui
- * License: GPL v2 or later
+ * License: MIT
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ * Copyright (c) 2016 Zoltan Balogh
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
  */
+
+/**
+ * Plugin initialization
+ */
+require plugins_url( '/lib/init.php', dirname(__FILE__) );
 
 /**
  * If Shortcake isn't active, then this demo plugin doesn't work either
  */
-add_action( 'init', 'shortcode_ui_detection' );
 function shortcode_ui_detection() {
   if ( !function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
     add_action( 'admin_notices', 'shortcode_ui_dev_example_notices' );
@@ -36,30 +50,19 @@ function shortcode_ui_dev_example_notices() {
 }
 
 /**
- * Register the two shortcodes independently of their UI.
- * Shortcodes should always be registered, but shortcode UI should only
- * be registered when Shortcake is active.
- */
-function shortcode_ui_dev_register_shortcodes() {
-  // This is a simple example for a pullquote with a citation.
-  add_shortcode( 'shortcake_dev', 'shortcode_ui_dev_shortcode' );
-}
-add_action( 'init', 'shortcode_ui_dev_register_shortcodes' );
-
-/**
  * Register a UI for the Shortcode.
  * Pass the shortcode tag (string)
  * and an array or args.
  */
-function shortcode_ui_dev_advanced_example() {
+function shortcode_ui_register_shortcodes() {
   /**
    * Register UI for your shortcode
    *
    * @param string $shortcode_tag
    * @param array $ui_args
    */
-  shortcode_ui_register_for_shortcode( 
-    'shortcake_dev', array(
+  shortcode_ui_register_for_shortcode( 'shortcake_dev', 
+    array(
       /*
        * How the shortcode should be labeled in the UI. Required argument.
        */
@@ -143,9 +146,11 @@ function shortcode_ui_dev_advanced_example() {
     )
   );
 
-  // Register bootstrap's [column] shortcode
-  /* shortcode_ui_register_for_shortcode(
-    'column', array(
+  /**
+   * Register bootstrap's [column] shortcode
+   */
+  /* shortcode_ui_register_for_shortcode( 'column', 
+    array(
     'label' => __( 'BS Column', 'shortcode-ui' ),
       'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
       'inner_content' => array(
@@ -271,11 +276,16 @@ function shortcode_ui_dev_advanced_example() {
     </tr>
   </table>';
 
+  /**
+   * Add some bootstrap shortcodes if the bootstrap-3-shortcodes plugin is activated
+   */
   if (is_plugin_active('bootstrap-3-shortcodes/bootstrap-shortcodes.php')) :
 
-    // Register bootstrap's [lead] shortcode
-    shortcode_ui_register_for_shortcode(
-      'lead', array(
+    /**
+     * Register UI for bootstrap's [lead] shortcode
+     */
+    shortcode_ui_register_for_shortcode( 'lead', 
+      array(
       'label' => __( 'BS lead copy', 'shortcode-ui' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
@@ -301,9 +311,11 @@ function shortcode_ui_dev_advanced_example() {
       )
     );
 
-    // Register bootstrap's [emphasis] shortcode
-    shortcode_ui_register_for_shortcode(
-      'emphasis', array(
+    /**
+     * Register bootstrap's [emphasis] shortcode
+     */
+    shortcode_ui_register_for_shortcode( 'emphasis', 
+      array(
       'label' => __( 'BS emphasis', 'shortcode-ui' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
@@ -344,9 +356,11 @@ function shortcode_ui_dev_advanced_example() {
       )
     );
 
-    // Register bootstrap's [code] shortcode
-    shortcode_ui_register_for_shortcode(
-      'code', array(
+    /**
+     * Register bootstrap's [code] shortcode
+     */
+    shortcode_ui_register_for_shortcode( 'code', 
+      array(
       'label' => __( 'BS code', 'shortcode-ui' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
@@ -392,9 +406,11 @@ function shortcode_ui_dev_advanced_example() {
       )
     );
 
-    // Register bootstrap's [button] shortcode
-    shortcode_ui_register_for_shortcode(
-      'button', array(
+    /**
+     * Register bootstrap's [button] shortcode
+     */
+    shortcode_ui_register_for_shortcode( 'button', 
+      array(
       'label' => __( 'BS button', 'shortcode-ui' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
@@ -505,9 +521,11 @@ function shortcode_ui_dev_advanced_example() {
       )
     );
 
-    // Register bootstrap's [responsive] shortcode
-    shortcode_ui_register_for_shortcode(
-      'responsive', array(
+    /**
+     * Register bootstrap's [responsive] shortcode
+     */
+    shortcode_ui_register_for_shortcode( 'responsive', 
+      array(
       'label' => __( 'BS responsive', 'shortcode-ui' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
@@ -584,9 +602,11 @@ function shortcode_ui_dev_advanced_example() {
       )
     );
 
-    // Register bootstrap's [icon] shortcode
-    shortcode_ui_register_for_shortcode(
-      'icon', array(
+    /**
+     * Register bootstrap's [icon] shortcode
+     */
+    shortcode_ui_register_for_shortcode( 'icon', 
+      array(
       'label' => __( 'BS glyphicon', 'shortcode-ui' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
@@ -621,9 +641,11 @@ function shortcode_ui_dev_advanced_example() {
       )
     );
 
-    // Register bootstrap's [label] shortcode
-    shortcode_ui_register_for_shortcode(
-      'label', array(
+    /**
+     * Register bootstrap's [label] shortcode
+     */
+    shortcode_ui_register_for_shortcode( 'label', 
+      array(
       'label' => __( 'BS label', 'shortcode-ui' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
@@ -664,9 +686,11 @@ function shortcode_ui_dev_advanced_example() {
       )
     );
 
-    // Register bootstrap's [badge] shortcode
-    shortcode_ui_register_for_shortcode(
-      'badge', array(
+    /**
+     * Register bootstrap's [badge] shortcode
+     */
+    shortcode_ui_register_for_shortcode( 'badge', 
+      array(
       'label' => __( 'BS badge', 'shortcode-ui' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
@@ -702,9 +726,11 @@ function shortcode_ui_dev_advanced_example() {
       )
     );
 
-    // Register bootstrap's [jumbotron] shortcode
-    shortcode_ui_register_for_shortcode(
-      'jumbotron', array(
+    /**
+     * Register bootstrap's [jumbotron] shortcode
+     */
+    shortcode_ui_register_for_shortcode( 'jumbotron', 
+      array(
       'label' => __( 'BS jumbotron', 'shortcode-ui' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
@@ -737,9 +763,11 @@ function shortcode_ui_dev_advanced_example() {
       )
     );
 
-    // Register bootstrap's [page-header] shortcode
-    shortcode_ui_register_for_shortcode(
-      'page-header', array(
+    /**
+     * Register bootstrap's [page-header] shortcode
+     */
+    shortcode_ui_register_for_shortcode( 'page-header', 
+      array(
       'label' => __( 'BS page-header', 'shortcode-ui' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
@@ -766,9 +794,11 @@ function shortcode_ui_dev_advanced_example() {
       )
     );
 
-    // Register bootstrap's [alert] shortcode
-    shortcode_ui_register_for_shortcode(
-      'alert', array(
+    /**
+     * Register bootstrap's [alert] shortcode
+     */
+    shortcode_ui_register_for_shortcode( 'alert', 
+      array(
       'label' => __( 'BS alert', 'shortcode-ui' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
@@ -818,9 +848,11 @@ function shortcode_ui_dev_advanced_example() {
       )
     );
 
-    // Register bootstrap's [panel] shortcode
-    shortcode_ui_register_for_shortcode(
-      'panel', array(
+    /**
+     * Register bootstrap's [panel] shortcode
+     */
+    shortcode_ui_register_for_shortcode( 'panel', 
+      array(
       'label' => __( 'BS panel', 'shortcode-ui' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
@@ -883,9 +915,11 @@ function shortcode_ui_dev_advanced_example() {
       )
     );
 
-    // Register bootstrap's [well] shortcode
-    shortcode_ui_register_for_shortcode(
-      'well', array(
+    /**
+     * Register bootstrap's [well] shortcode
+     */
+    shortcode_ui_register_for_shortcode( 'well', 
+      array(
       'label' => __( 'BS well', 'shortcode-ui' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
@@ -923,9 +957,11 @@ function shortcode_ui_dev_advanced_example() {
       )
     );
 
-    // Register bootstrap's [tooltip] shortcode
-    shortcode_ui_register_for_shortcode(
-      'tooltip', array(
+    /**
+     * Register bootstrap's [tooltip] shortcode
+     */
+    shortcode_ui_register_for_shortcode( 'tooltip', 
+      array(
       'label' => __( 'BS tooltip', 'shortcode-ui' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
@@ -971,9 +1007,11 @@ function shortcode_ui_dev_advanced_example() {
       )
     );
 
-    // Register bootstrap's [popover] shortcode
-    shortcode_ui_register_for_shortcode(
-      'popover', array(
+    /**
+     * Register bootstrap's [popover] shortcode
+     */
+    shortcode_ui_register_for_shortcode( 'popover', 
+      array(
       'label' => __( 'BS popover', 'shortcode-ui' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
@@ -1025,9 +1063,11 @@ function shortcode_ui_dev_advanced_example() {
       )
     );
 
-    // Register bootstrap's [table-wrap] shortcode
-    shortcode_ui_register_for_shortcode(
-      'table-wrap', array(
+    /**
+     * Register bootstrap's [table-wrap] shortcode
+     */
+    shortcode_ui_register_for_shortcode( 'table-wrap', 
+      array(
       'label' => __( 'BS table-wrap', 'shortcode-ui' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
@@ -1109,7 +1149,6 @@ function shortcode_ui_dev_advanced_example() {
 
   endif;
 }
-add_action( 'register_shortcode_ui', 'shortcode_ui_dev_advanced_example' );
 
 /**
  * Render the shortcode based on supplied attributes
@@ -1138,4 +1177,14 @@ function shortcode_ui_dev_shortcode( $attr, $content = '', $shortcode_tag ) {
 
   return ob_get_clean();
 
+}
+
+/**
+ * Register the shortcodes independently of their UI.
+ * Shortcodes should always be registered, but shortcode UI should only
+ * be registered when Shortcake is active.
+ */
+function shortcode_ui_dev_register_shortcodes() {
+  // This is a simple example for a pullquote with a citation.
+  add_shortcode( 'shortcake_dev', 'shortcode_ui_dev_shortcode' );
 }
