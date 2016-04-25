@@ -1,0 +1,24 @@
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+// useful bootstram mixin: @include button-variant($color, $background-color, $border-color);
+
+
+/*
+ * This will create an outline button with transparent background;
+ * feel free to copy it for every color you need.
+ */
+
+.btn-outline-primary {
+  @include button-variant($brand-primary, transparent, $brand-primary);
+  // Add more styles if needed.
+  transition: all 300ms ease;
+
+  &:hover,
+  &:active,
+  &:focus {
+    // Inverse the colors, just a suggestion.
+    @include button-variant(#fff, $brand-primary, #fff);
+  }
+}

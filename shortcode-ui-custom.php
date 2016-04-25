@@ -8,7 +8,7 @@
  * Text Domain: shortcode-ui
  * License: MIT
  *
- * Copyright (c) 2016 Zoltan Balogh
+ * Copyright (c) 2016 Lateral
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -32,7 +32,7 @@
 /**
  * Plugin initialization
  */
-require plugins_url( '/lib/init.php', dirname(__FILE__) );
+require_once( dirname( __FILE__ ) . '/lib/init.php' );
 
 /**
  * If Shortcake isn't active, then this demo plugin doesn't work either
@@ -75,7 +75,7 @@ function shortcode_ui_register_shortcodes() {
       /*
        * Limit this shortcode UI to specific posts. Optional.
        */
-      'post_type' => array( 'post' ),
+      // 'post_type' => array( 'post' ),
       /*
        * Register UI for the "inner content" of the shortcode. Optional.
        * If no UI is registered for the inner content, then any inner content
@@ -1153,13 +1153,13 @@ function shortcode_ui_register_shortcodes() {
 /**
  * Render the shortcode based on supplied attributes
  */
-function shortcode_ui_dev_shortcode( $attr, $content = '', $shortcode_tag ) {
+function shortcode_ui_dev_shortcode( $attr, $content = '' ) {
 
   $attr = shortcode_atts( array(
     'source'     => '',
     'attachment' => 0,
     'source'     => null,
-  ), $attr, $shortcode_tag );
+  ), $attr );
 
   ob_start();
 
