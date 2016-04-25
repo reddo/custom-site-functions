@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: Shortcode UI Custom
+ * Plugin Name: Custom Site-specific Functions
  * Version: v1.0
- * Description: Adds custom shortcodes and also adds said shortcodes to Shorcode UI.
+ * Description: Adds custom shortcodes and also adds said shortcodes to Shortcake.
  * Author: Lateral
  * Author URI: http://lateral-inc.com/
- * Text Domain: shortcode-ui
+ * Text Domain: _csf
  * License: MIT
  *
  * Copyright (c) 2016 Lateral
@@ -66,7 +66,7 @@ function shortcode_ui_register_shortcodes() {
       /*
        * How the shortcode should be labeled in the UI. Required argument.
        */
-      'label' => esc_html__( 'Shortcake Dev', 'shortcode-ui' ),
+      'label' => esc_html__( 'Shortcake Dev', '_csf' ),
       /*
        * Include an icon with your shortcode. Optional.
        * Use a dashicon, or full URL to image.
@@ -82,8 +82,8 @@ function shortcode_ui_register_shortcodes() {
        * data present will be backed up during editing.
        */
       'inner_content' => array(
-        'label'        => esc_html__( 'Quote', 'shortcode-ui' ),
-        'description'  => esc_html__( 'Include a statement from someone famous.', 'shortcode-ui' ),
+        'label'        => esc_html__( 'Quote', '_csf' ),
+        'description'  => esc_html__( 'Include a statement from someone famous.', '_csf' ),
       ),
       /*
        * Register UI for attributes of the shortcode. Optional.
@@ -102,7 +102,7 @@ function shortcode_ui_register_shortcodes() {
        */
       'attrs' => array(
         array(
-          'label'       => esc_html__( 'Attachment', 'shortcode-ui' ),
+          'label'       => esc_html__( 'Attachment', '_csf' ),
           'attr'        => 'attachment',
           'type'        => 'attachment',
           /*
@@ -112,28 +112,28 @@ function shortcode_ui_register_shortcodes() {
            * 'frameTitle' - Title for the modal UI once the library is open.
            */
           'libraryType' => array( 'image' ),
-          'addButton'   => esc_html__( 'Select Image', 'shortcode-ui' ),
+          'addButton'   => esc_html__( 'Select Image', '_csf' ),
           'frameTitle'  => esc_html__( 'Select Image', 'shortcode-ui ' ),
         ),
         array(
-          'label'  => esc_html__( 'Citation Source', 'shortcode-ui' ),
+          'label'  => esc_html__( 'Citation Source', '_csf' ),
           'attr'   => 'source',
           'type'   => 'text',
           'encode' => true,
           'meta'   => array(
-            'placeholder' => esc_html__( 'Test placeholder', 'shortcode-ui' ),
+            'placeholder' => esc_html__( 'Test placeholder', '_csf' ),
             'data-test'   => 1,
           ),
         ),
         array(
-          'label' => esc_html__( 'Select Page', 'shortcode-ui' ),
+          'label' => esc_html__( 'Select Page', '_csf' ),
           'attr' => 'page',
           'type' => 'post_select',
           'query' => array( 'post_type' => 'page' ),
           'multiple' => true,
         ),
         array(
-          'label' => __( 'Select Whatever', 'shortcode-ui' ),
+          'label' => __( 'Select Whatever', '_csf' ),
           'attr' => 'select',
           'type' => 'select',
           'options' => array( 
@@ -151,119 +151,119 @@ function shortcode_ui_register_shortcodes() {
    */
   /* shortcode_ui_register_for_shortcode( 'column', 
     array(
-    'label' => __( 'BS Column', 'shortcode-ui' ),
+    'label' => __( 'BS Column', '_csf' ),
       'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
       'inner_content' => array(
-        'label'        => __( 'Content', 'shortcode-ui' )
+        'label'        => __( 'Content', '_csf' )
       ),
       'attrs' => array(
         array(
-          'label'  => __( 'Extra Class(es)', 'shortcode-ui' ),
+          'label'  => __( 'Extra Class(es)', '_csf' ),
           'attr'   => 'xclass',
           'type'   => 'text',
-          'description'  => __( 'Any extra classes you want to add', 'shortcode-ui' )
+          'description'  => __( 'Any extra classes you want to add', '_csf' )
         ),
         array(
           'label' => __('col-xs-'),
           'attr' => 'xs',
           'type' => 'text',
-          'description' => __( 'Size of column on extra small screens (less than 768px); optional;    1-12    false', 'shortcode-ui')
+          'description' => __( 'Size of column on extra small screens (less than 768px); optional;    1-12    false', '_csf')
         ),
         array(
           'label' => __('col-sm-'),
           'attr' => 'sm',
           'type' => 'text',
-          'description' => __( 'Size of column on small screens (greater than 768px); optional;   1-12    false', 'shortcode-ui')
+          'description' => __( 'Size of column on small screens (greater than 768px); optional;   1-12    false', '_csf')
         ),
         array(
           'label' => __('col-md-'),
           'attr' => 'md',
           'type' => 'text',
-          'description' => __( 'Size of column on medium screens (greater than 992px);    optional;   1-12    false', 'shortcode-ui')
+          'description' => __( 'Size of column on medium screens (greater than 992px);    optional;   1-12    false', '_csf')
         ),
         array(
           'label' => __('col-lg-'),
           'attr' => 'lg',
           'type' => 'text',
-          'description' => __( 'Size of column on large screens (greater than 1200px);    optional;   1-12    false', 'shortcode-ui')
+          'description' => __( 'Size of column on large screens (greater than 1200px);    optional;   1-12    false', '_csf')
         ),
         array(
           'label' => __('col-xs-offset-'),
           'attr' => 'offset_xs',
           'type' => 'text',
-          'description' => __( 'Offset on extra small screens;    optional;   1-12    false', 'shortcode-ui')
+          'description' => __( 'Offset on extra small screens;    optional;   1-12    false', '_csf')
         ),
         array(
           'label' => __('col-sm-offset-'),
           'attr' => 'offset_sm',
           'type' => 'text',
-          'description' => __( 'Offset on small screens;  optional;   1-12    false', 'shortcode-ui')
+          'description' => __( 'Offset on small screens;  optional;   1-12    false', '_csf')
         ),
         array(
           'label' => __('col-md-offset-'),
           'attr' => 'offset_md',
           'type' => 'text',
-          'description' => __( 'Offset on column on medium screens;   optional;   1-12    false', 'shortcode-ui')
+          'description' => __( 'Offset on column on medium screens;   optional;   1-12    false', '_csf')
         ),
         array(
           'label' => __('col-lg-offset-'),
           'attr' => 'offset_lg',
           'type' => 'text',
-          'description' => __( 'Offset on column on large screens;    optional;   1-12    false', 'shortcode-ui')
+          'description' => __( 'Offset on column on large screens;    optional;   1-12    false', '_csf')
         ),
         array(
           'label' => __('pull-xs-'),
           'attr' => 'pull_xs',
           'type' => 'text',
-          'description' => __( 'Pull on extra small screens;  optional;   1-12    false', 'shortcode-ui')
+          'description' => __( 'Pull on extra small screens;  optional;   1-12    false', '_csf')
         ),
         array(
           'label' => __('pull-sm-'),
           'attr' => 'pull_sm',
           'type' => 'text',
-          'description' => __( 'Pull on small screens;    optional;   1-12    false', 'shortcode-ui')
+          'description' => __( 'Pull on small screens;    optional;   1-12    false', '_csf')
         ),
         array(
           'label' => __('pull-md-'),
           'attr' => 'pull_md',
           'type' => 'text',
-          'description' => __( 'Pull on column on medium screens; optional;   1-12    false', 'shortcode-ui')
+          'description' => __( 'Pull on column on medium screens; optional;   1-12    false', '_csf')
         ),
         array(
           'label' => __('pull-lg-'),
           'attr' => 'pull_lg',
           'type' => 'text',
-          'description' => __( 'Pull on column on large screens;  optional;   1-12    false', 'shortcode-ui')
+          'description' => __( 'Pull on column on large screens;  optional;   1-12    false', '_csf')
         ),
         array(
           'label' => __('pull-xs-'),
           'attr' => 'push_xs',
           'type' => 'text',
-          'description' => __( 'Push on extra small screens;  optional;   1-12    false', 'shortcode-ui')
+          'description' => __( 'Push on extra small screens;  optional;   1-12    false', '_csf')
         ),
         array(
           'label' => __('pull-sm-'),
           'attr' => 'push_sm',
           'type' => 'text',
-          'description' => __( 'Push on small screens;    optional;   1-12    false', 'shortcode-ui')
+          'description' => __( 'Push on small screens;    optional;   1-12    false', '_csf')
         ),
         array(
           'label' => __('pull-md-'),
           'attr' => 'push_md',
           'type' => 'text',
-          'description' => __( 'Push on column on medium screens; optional;   1-12    false', 'shortcode-ui')
+          'description' => __( 'Push on column on medium screens; optional;   1-12    false', '_csf')
         ),
         array(
           'label' => __('pull-lg-'),
           'attr' => 'push_lg',
           'type' => 'text',
-          'description' => __( 'Push on column on large screens;  optional;   1-12    false', 'shortcode-ui')
+          'description' => __( 'Push on column on large screens;  optional;   1-12    false', '_csf')
         ),
         array(
           'label' => __('Data attribute(s)'),
           'attr' => 'data',
           'type' => 'text',
-          'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe (see example at Button Dropdowns).;  optional;   any text    none', 'shortcode-ui')
+          'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe (see example at Button Dropdowns).;  optional;   any text    none', '_csf')
         )
       )
     )
@@ -286,25 +286,25 @@ function shortcode_ui_register_shortcodes() {
      */
     shortcode_ui_register_for_shortcode( 'lead', 
       array(
-      'label' => __( 'BS lead copy', 'shortcode-ui' ),
+      'label' => __( 'BS lead copy', '_csf' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
-          'label'        => __( 'Content', 'shortcode-ui' )
+          'label'        => __( 'Content', '_csf' )
         ),
         'attrs' => array(
           array(
-            'label'  => __( 'Extra Class(es)', 'shortcode-ui' ),
+            'label'  => __( 'Extra Class(es)', '_csf' ),
             'attr'   => 'xclass',
             'type'   => 'text',
-            'description'  => __( 'Any extra classes you want to add', 'shortcode-ui' )
+            'description'  => __( 'Any extra classes you want to add', '_csf' )
           ),
           array(
             'label' => __('Data attribute(s)'),
             'attr' => 'data',
             'type' => 'text',
-            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', 'shortcode-ui'),
+            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', '_csf'),
             'meta'   => array(
-              'placeholder' => __( 'attribute,value|another-attr,value', 'shortcode-ui' )
+              'placeholder' => __( 'attribute,value|another-attr,value', '_csf' )
             )
           )
         )
@@ -316,14 +316,14 @@ function shortcode_ui_register_shortcodes() {
      */
     shortcode_ui_register_for_shortcode( 'emphasis', 
       array(
-      'label' => __( 'BS emphasis', 'shortcode-ui' ),
+      'label' => __( 'BS emphasis', '_csf' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
-          'label'        => __( 'Content', 'shortcode-ui' )
+          'label'        => __( 'Content', '_csf' )
         ),
         'attrs' => array(
           array(
-            'label' => __( 'Type', 'shortcode-ui' ),
+            'label' => __( 'Type', '_csf' ),
             'attr' => 'type',
             'type' => 'select',
             'options' => array(
@@ -335,21 +335,21 @@ function shortcode_ui_register_shortcodes() {
               'muted' => 'muted' 
             ),
             'multiple' => false,
-            'description'  => __( 'The type of emphasis to display', 'shortcode-ui' )
+            'description'  => __( 'The type of emphasis to display', '_csf' )
           ),
           array(
-            'label'  => __( 'Extra Class(es)', 'shortcode-ui' ),
+            'label'  => __( 'Extra Class(es)', '_csf' ),
             'attr'   => 'xclass',
             'type'   => 'text',
-            'description'  => __( 'Any extra classes you want to add', 'shortcode-ui' )
+            'description'  => __( 'Any extra classes you want to add', '_csf' )
           ),
           array(
             'label' => __('Data attribute(s)'),
             'attr' => 'data',
             'type' => 'text',
-            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', 'shortcode-ui'),
+            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', '_csf'),
             'meta'   => array(
-              'placeholder' => __( 'attribute,value|another-attr,value', 'shortcode-ui' )
+              'placeholder' => __( 'attribute,value|another-attr,value', '_csf' )
             )
           )
         )
@@ -361,45 +361,45 @@ function shortcode_ui_register_shortcodes() {
      */
     shortcode_ui_register_for_shortcode( 'code', 
       array(
-      'label' => __( 'BS code', 'shortcode-ui' ),
+      'label' => __( 'BS code', '_csf' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
-          'label'        => __( 'Content', 'shortcode-ui' )
+          'label'        => __( 'Content', '_csf' )
         ),
         'attrs' => array(
           array(
-            'label' => __( 'Inline?', 'shortcode-ui' ),
+            'label' => __( 'Inline?', '_csf' ),
             'attr' => 'inline',
             'type' => 'radio',
             'options' => array(
               '' => 'false',
               'true' => 'true'
             ),
-            'description'  => __( 'Display the code inline?', 'shortcode-ui' )
+            'description'  => __( 'Display the code inline?', '_csf' )
           ),
           array(
-            'label' => __( 'Scrollable?', 'shortcode-ui' ),
+            'label' => __( 'Scrollable?', '_csf' ),
             'attr' => 'scrollable',
             'type' => 'radio',
             'options' => array(
               '' => 'false',
               'true' => 'true'
             ),
-            'description'  => __( 'Set a max height of 350px and provide a scroll bar. Not usable if inline is true.', 'shortcode-ui' )
+            'description'  => __( 'Set a max height of 350px and provide a scroll bar. Not usable if inline is true.', '_csf' )
           ),
           array(
-            'label'  => __( 'Extra Class(es)', 'shortcode-ui' ),
+            'label'  => __( 'Extra Class(es)', '_csf' ),
             'attr'   => 'xclass',
             'type'   => 'text',
-            'description'  => __( 'Any extra classes you want to add', 'shortcode-ui' )
+            'description'  => __( 'Any extra classes you want to add', '_csf' )
           ),
           array(
             'label' => __('Data attribute(s)'),
             'attr' => 'data',
             'type' => 'text',
-            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', 'shortcode-ui'),
+            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', '_csf'),
             'meta'   => array(
-              'placeholder' => __( 'attribute,value|another-attr,value', 'shortcode-ui' )
+              'placeholder' => __( 'attribute,value|another-attr,value', '_csf' )
             )
           )
         )
@@ -411,14 +411,14 @@ function shortcode_ui_register_shortcodes() {
      */
     shortcode_ui_register_for_shortcode( 'button', 
       array(
-      'label' => __( 'BS button', 'shortcode-ui' ),
+      'label' => __( 'BS button', '_csf' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
-          'label'        => __( 'Content', 'shortcode-ui' )
+          'label'        => __( 'Content', '_csf' )
         ),
         'attrs' => array(
           array(
-            'label' => __( 'Type', 'shortcode-ui' ),
+            'label' => __( 'Type', '_csf' ),
             'attr' => 'type',
             'type' => 'select',
             'options' => array(
@@ -431,10 +431,10 @@ function shortcode_ui_register_shortcodes() {
               'link' => 'link'
             ),
             'multiple' => false,
-            'description'  => __( 'The type of button to display', 'shortcode-ui' )
+            'description'  => __( 'The type of button to display', '_csf' )
           ),
           array(
-            'label' => __( 'Size', 'shortcode-ui' ),
+            'label' => __( 'Size', '_csf' ),
             'attr' => 'size',
             'type' => 'select',
             'options' => array(
@@ -444,77 +444,77 @@ function shortcode_ui_register_shortcodes() {
               'lg' => 'lg'
             ),
             'multiple' => false,
-            'description'  => __( 'The size of the button', 'shortcode-ui' )
+            'description'  => __( 'The size of the button', '_csf' )
           ),
           array(
-            'label' => __( 'Block', 'shortcode-ui' ),
+            'label' => __( 'Block', '_csf' ),
             'attr' => 'block',
             'type' => 'radio',
             'options' => array(
               '' => 'false',
               'true' => 'true'
             ),
-            'description'  => __( 'Whether the button should be a block-level button', 'shortcode-ui' )
+            'description'  => __( 'Whether the button should be a block-level button', '_csf' )
           ),
           array(
-            'label' => __( 'Dropdown', 'shortcode-ui' ),
+            'label' => __( 'Dropdown', '_csf' ),
             'attr' => 'dropdown',
             'type' => 'radio',
             'options' => array(
               'false' => 'false',
               'true' => 'true'
             ),
-            'description'  => __( 'Whether the button triggers a dropdown menu', 'shortcode-ui' )
+            'description'  => __( 'Whether the button triggers a dropdown menu', '_csf' )
           ),
           array(
-            'label' => __( 'Active', 'shortcode-ui' ),
+            'label' => __( 'Active', '_csf' ),
             'attr' => 'active',
             'type' => 'radio',
             'options' => array(
               '' => 'false',
               'true' => 'true'
             ),
-            'description'  => __( 'Apply the "active" style', 'shortcode-ui' )
+            'description'  => __( 'Apply the "active" style', '_csf' )
           ),
           array(
-            'label' => __( 'Disabled', 'shortcode-ui' ),
+            'label' => __( 'Disabled', '_csf' ),
             'attr' => 'disabled',
             'type' => 'radio',
             'options' => array(
               '' => 'false',
               'true' => 'true'
             ),
-            'description'  => __( 'Whether the button be disabled', 'shortcode-ui' )
+            'description'  => __( 'Whether the button be disabled', '_csf' )
           ),
           array(
-            'label'  => __( 'Link of the button', 'shortcode-ui' ),
+            'label'  => __( 'Link of the button', '_csf' ),
             'attr'   => 'link',
             'type'   => 'text',
-            'description'  => __( 'The url you want the button to link to', 'shortcode-ui' )
+            'description'  => __( 'The url you want the button to link to', '_csf' )
           ),
           array(
-            'label' => __( 'Target', 'shortcode-ui' ),
+            'label' => __( 'Target', '_csf' ),
             'attr' => 'target',
             'type' => 'text',
             'multiple' => false,
-            'description'  => __( 'Target where the link should open', 'shortcode-ui' ),
+            'description'  => __( 'Target where the link should open', '_csf' ),
             'meta'   => array(
-              'placeholder' => __( '_blank|_self|_parent|_top|framename', 'shortcode-ui' )
+              'placeholder' => __( '_blank|_self|_parent|_top|framename', '_csf' )
             )
           ),
           array(
-            'label'  => __( 'Extra Class(es)', 'shortcode-ui' ),
+            'label'  => __( 'Extra Class(es)', '_csf' ),
             'attr'   => 'xclass',
             'type'   => 'text',
-            'description'  => __( 'Any extra classes you want to add', 'shortcode-ui' )
+            'description'  => __( 'Any extra classes you want to add', '_csf' )
           ),
           array(
             'label' => __('Data attribute(s)'),
             'attr' => 'data',
             'type' => 'text',
-            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', 'shortcode-ui'),
+            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', '_csf'),
             'meta'   => array(
-              'placeholder' => __( 'attribute,value|another-attr,value', 'shortcode-ui' )
+              'placeholder' => __( 'attribute,value|another-attr,value', '_csf' )
             )
           )
         )
@@ -526,76 +526,76 @@ function shortcode_ui_register_shortcodes() {
      */
     shortcode_ui_register_for_shortcode( 'responsive', 
       array(
-      'label' => __( 'BS responsive', 'shortcode-ui' ),
+      'label' => __( 'BS responsive', '_csf' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
-          'label'        => __( 'Content', 'shortcode-ui' )
+          'label'        => __( 'Content', '_csf' )
         ),
         'attrs' => array(
           array(
-            'label' => __( 'Visible', 'shortcode-ui' ),
+            'label' => __( 'Visible', '_csf' ),
             'attr' => 'visible',
             'type' => 'text',
             'multiple' => false,
             'description'  => __( 'Sizes at which this element is visible (separated by spaces)<br>
-              <strong>NOTE: as of Bootstrap 3.2 "visible" is deprecated in favor of "block", "inline", and "inline-block" (see below)</strong>', 'shortcode-ui' ),
+              <strong>NOTE: as of Bootstrap 3.2 "visible" is deprecated in favor of "block", "inline", and "inline-block" (see below)</strong>', '_csf' ),
             'meta'   => array(
-              'placeholder' => __( 'xs sm md lg', 'shortcode-ui' )
+              'placeholder' => __( 'xs sm md lg', '_csf' )
             )
           ),
           array(
-            'label' => __( 'Hidden', 'shortcode-ui' ),
+            'label' => __( 'Hidden', '_csf' ),
             'attr' => 'hidden',
             'type' => 'text',
             'multiple' => false,
-            'description'  => __( 'Sizes at which this element is hidden (separated by spaces)', 'shortcode-ui' ),
+            'description'  => __( 'Sizes at which this element is hidden (separated by spaces)', '_csf' ),
             'meta'   => array(
-              'placeholder' => __( 'xs sm md lg', 'shortcode-ui' )
+              'placeholder' => __( 'xs sm md lg', '_csf' )
             )
           ),
           array(
-            'label' => __( 'Block', 'shortcode-ui' ),
+            'label' => __( 'Block', '_csf' ),
             'attr' => 'block',
             'type' => 'text',
             'multiple' => false,
-            'description'  => __( 'Sizes at which this element is visible and displayed as a "block" element (separated by spaces)', 'shortcode-ui' ),
+            'description'  => __( 'Sizes at which this element is visible and displayed as a "block" element (separated by spaces)', '_csf' ),
             'meta'   => array(
-              'placeholder' => __( 'xs sm md lg', 'shortcode-ui' )
+              'placeholder' => __( 'xs sm md lg', '_csf' )
             )
           ),
           array(
-            'label' => __( 'Inline', 'shortcode-ui' ),
+            'label' => __( 'Inline', '_csf' ),
             'attr' => 'inline',
             'type' => 'text',
             'multiple' => false,
-            'description'  => __( 'Sizes at which this element is visible and displayed as an "inline" element (separated by spaces)', 'shortcode-ui' ),
+            'description'  => __( 'Sizes at which this element is visible and displayed as an "inline" element (separated by spaces)', '_csf' ),
             'meta'   => array(
-              'placeholder' => __( 'xs sm md lg', 'shortcode-ui' )
+              'placeholder' => __( 'xs sm md lg', '_csf' )
             )
           ),
           array(
-            'label' => __( 'Inline-block', 'shortcode-ui' ),
+            'label' => __( 'Inline-block', '_csf' ),
             'attr' => 'inline_block',
             'type' => 'text',
             'multiple' => false,
-            'description'  => __( 'Sizes at which this element is visible and displayed as an "inline-block" element (separated by spaces)', 'shortcode-ui' ),
+            'description'  => __( 'Sizes at which this element is visible and displayed as an "inline-block" element (separated by spaces)', '_csf' ),
             'meta'   => array(
-              'placeholder' => __( 'xs sm md lg', 'shortcode-ui' )
+              'placeholder' => __( 'xs sm md lg', '_csf' )
             )
           ),
           array(
-            'label'  => __( 'Extra Class(es)', 'shortcode-ui' ),
+            'label'  => __( 'Extra Class(es)', '_csf' ),
             'attr'   => 'xclass',
             'type'   => 'text',
-            'description'  => __( 'Any extra classes you want to add', 'shortcode-ui' )
+            'description'  => __( 'Any extra classes you want to add', '_csf' )
           ),
           array(
             'label' => __('Data attribute(s)'),
             'attr' => 'data',
             'type' => 'text',
-            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', 'shortcode-ui'),
+            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', '_csf'),
             'meta'   => array(
-              'placeholder' => __( 'attribute,value|another-attr,value', 'shortcode-ui' )
+              'placeholder' => __( 'attribute,value|another-attr,value', '_csf' )
             )
           )
         )
@@ -607,34 +607,34 @@ function shortcode_ui_register_shortcodes() {
      */
     shortcode_ui_register_for_shortcode( 'icon', 
       array(
-      'label' => __( 'BS glyphicon', 'shortcode-ui' ),
+      'label' => __( 'BS glyphicon', '_csf' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
-          'label'        => __( 'Content', 'shortcode-ui' )
+          'label'        => __( 'Content', '_csf' )
         ),
         'attrs' => array(
           array(
-            'label'  => __( 'Type', 'shortcode-ui' ),
+            'label'  => __( 'Type', '_csf' ),
             'attr'   => 'type',
             'type'   => 'text',
-            'description'  => __( 'See <a href="http://getbootstrap.com/components/#glyphicons-glyphs" target="_blank">Bootstrap docs</a>.', 'shortcode-ui' ),
+            'description'  => __( 'See <a href="http://getbootstrap.com/components/#glyphicons-glyphs" target="_blank">Bootstrap docs</a>.', '_csf' ),
             'meta'   => array(
-              'placeholder' => __( 'glyphicon-star', 'shortcode-ui' )
+              'placeholder' => __( 'glyphicon-star', '_csf' )
             )
           ),
           array(
-            'label'  => __( 'Extra Class(es)', 'shortcode-ui' ),
+            'label'  => __( 'Extra Class(es)', '_csf' ),
             'attr'   => 'xclass',
             'type'   => 'text',
-            'description'  => __( 'Any extra classes you want to add', 'shortcode-ui' )
+            'description'  => __( 'Any extra classes you want to add', '_csf' )
           ),
           array(
             'label' => __('Data attribute(s)'),
             'attr' => 'data',
             'type' => 'text',
-            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', 'shortcode-ui'),
+            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', '_csf'),
             'meta'   => array(
-              'placeholder' => __( 'attribute,value|another-attr,value', 'shortcode-ui' )
+              'placeholder' => __( 'attribute,value|another-attr,value', '_csf' )
             )
           )
         )
@@ -646,14 +646,14 @@ function shortcode_ui_register_shortcodes() {
      */
     shortcode_ui_register_for_shortcode( 'label', 
       array(
-      'label' => __( 'BS label', 'shortcode-ui' ),
+      'label' => __( 'BS label', '_csf' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
-          'label'        => __( 'Content', 'shortcode-ui' )
+          'label'        => __( 'Content', '_csf' )
         ),
         'attrs' => array(
           array(
-            'label' => __( 'Type', 'shortcode-ui' ),
+            'label' => __( 'Type', '_csf' ),
             'attr' => 'type',
             'type' => 'select',
             'options' => array(
@@ -665,21 +665,21 @@ function shortcode_ui_register_shortcodes() {
               'danger' => 'danger'
             ),
             'multiple' => false,
-            'description'  => __( 'The type of label to display', 'shortcode-ui' )
+            'description'  => __( 'The type of label to display', '_csf' )
           ),
           array(
-            'label'  => __( 'Extra Class(es)', 'shortcode-ui' ),
+            'label'  => __( 'Extra Class(es)', '_csf' ),
             'attr'   => 'xclass',
             'type'   => 'text',
-            'description'  => __( 'Any extra classes you want to add', 'shortcode-ui' )
+            'description'  => __( 'Any extra classes you want to add', '_csf' )
           ),
           array(
             'label' => __('Data attribute(s)'),
             'attr' => 'data',
             'type' => 'text',
-            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', 'shortcode-ui'),
+            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', '_csf'),
             'meta'   => array(
-              'placeholder' => __( 'attribute,value|another-attr,value', 'shortcode-ui' )
+              'placeholder' => __( 'attribute,value|another-attr,value', '_csf' )
             )
           )
         )
@@ -691,35 +691,35 @@ function shortcode_ui_register_shortcodes() {
      */
     shortcode_ui_register_for_shortcode( 'badge', 
       array(
-      'label' => __( 'BS badge', 'shortcode-ui' ),
+      'label' => __( 'BS badge', '_csf' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
-          'label'        => __( 'Content', 'shortcode-ui' )
+          'label'        => __( 'Content', '_csf' )
         ),
         'attrs' => array(
           array(
-            'label' => __( 'Right', 'shortcode-ui' ),
+            'label' => __( 'Right', '_csf' ),
             'attr' => 'right',
             'type' => 'radio',
             'options' => array(
               '' => 'false',
               'true' => 'true'
             ),
-            'description'  => __( 'Whether the badge should align to the right of its container', 'shortcode-ui' )
+            'description'  => __( 'Whether the badge should align to the right of its container', '_csf' )
           ),
           array(
-            'label'  => __( 'Extra Class(es)', 'shortcode-ui' ),
+            'label'  => __( 'Extra Class(es)', '_csf' ),
             'attr'   => 'xclass',
             'type'   => 'text',
-            'description'  => __( 'Any extra classes you want to add', 'shortcode-ui' )
+            'description'  => __( 'Any extra classes you want to add', '_csf' )
           ),
           array(
             'label' => __('Data attribute(s)'),
             'attr' => 'data',
             'type' => 'text',
-            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', 'shortcode-ui'),
+            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', '_csf'),
             'meta'   => array(
-              'placeholder' => __( 'attribute,value|another-attr,value', 'shortcode-ui' )
+              'placeholder' => __( 'attribute,value|another-attr,value', '_csf' )
             )
           )
         )
@@ -731,32 +731,32 @@ function shortcode_ui_register_shortcodes() {
      */
     shortcode_ui_register_for_shortcode( 'jumbotron', 
       array(
-      'label' => __( 'BS jumbotron', 'shortcode-ui' ),
+      'label' => __( 'BS jumbotron', '_csf' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
-          'label'        => __( 'Content', 'shortcode-ui' ),
-          'description'  => __( '<a href="http://getbootstrap.com/components/#jumbotron" target="_blank">Bootstrap jumbotron documentation</a>', 'shortcode-ui' )
+          'label'        => __( 'Content', '_csf' ),
+          'description'  => __( '<a href="http://getbootstrap.com/components/#jumbotron" target="_blank">Bootstrap jumbotron documentation</a>', '_csf' )
         ),
         'attrs' => array(
           array(
-            'label'  => __( 'Title', 'shortcode-ui' ),
+            'label'  => __( 'Title', '_csf' ),
             'attr'   => 'title',
             'type'   => 'text',
-            'description'  => __( 'The jumbotron title', 'shortcode-ui' )
+            'description'  => __( 'The jumbotron title', '_csf' )
           ),
           array(
-            'label'  => __( 'Extra Class(es)', 'shortcode-ui' ),
+            'label'  => __( 'Extra Class(es)', '_csf' ),
             'attr'   => 'xclass',
             'type'   => 'text',
-            'description'  => __( 'Any extra classes you want to add', 'shortcode-ui' )
+            'description'  => __( 'Any extra classes you want to add', '_csf' )
           ),
           array(
             'label' => __('Data attribute(s)'),
             'attr' => 'data',
             'type' => 'text',
-            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', 'shortcode-ui'),
+            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', '_csf'),
             'meta'   => array(
-              'placeholder' => __( 'attribute,value|another-attr,value', 'shortcode-ui' )
+              'placeholder' => __( 'attribute,value|another-attr,value', '_csf' )
             )
           )
         )
@@ -768,26 +768,26 @@ function shortcode_ui_register_shortcodes() {
      */
     shortcode_ui_register_for_shortcode( 'page-header', 
       array(
-      'label' => __( 'BS page-header', 'shortcode-ui' ),
+      'label' => __( 'BS page-header', '_csf' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
-          'label'        => __( 'Content', 'shortcode-ui' ),
-          'description'  => __( 'Automatically inserts H1 tag if not present', 'shortcode-ui' )
+          'label'        => __( 'Content', '_csf' ),
+          'description'  => __( 'Automatically inserts H1 tag if not present', '_csf' )
         ),
         'attrs' => array(
           array(
-            'label'  => __( 'Extra Class(es)', 'shortcode-ui' ),
+            'label'  => __( 'Extra Class(es)', '_csf' ),
             'attr'   => 'xclass',
             'type'   => 'text',
-            'description'  => __( 'Any extra classes you want to add', 'shortcode-ui' )
+            'description'  => __( 'Any extra classes you want to add', '_csf' )
           ),
           array(
             'label' => __('Data attribute(s)'),
             'attr' => 'data',
             'type' => 'text',
-            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', 'shortcode-ui'),
+            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', '_csf'),
             'meta'   => array(
-              'placeholder' => __( 'attribute,value|another-attr,value', 'shortcode-ui' )
+              'placeholder' => __( 'attribute,value|another-attr,value', '_csf' )
             )
           )
         )
@@ -799,14 +799,14 @@ function shortcode_ui_register_shortcodes() {
      */
     shortcode_ui_register_for_shortcode( 'alert', 
       array(
-      'label' => __( 'BS alert', 'shortcode-ui' ),
+      'label' => __( 'BS alert', '_csf' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
-          'label'        => __( 'Content', 'shortcode-ui' )
+          'label'        => __( 'Content', '_csf' )
         ),
         'attrs' => array(
           array(
-            'label' => __( 'Type', 'shortcode-ui' ),
+            'label' => __( 'Type', '_csf' ),
             'attr' => 'type',
             'type' => 'select',
             'options' => array(
@@ -817,31 +817,31 @@ function shortcode_ui_register_shortcodes() {
               'danger' => 'danger'
             ),
             'multiple' => false,
-            'description'  => __( 'The type of the alert', 'shortcode-ui' )
+            'description'  => __( 'The type of the alert', '_csf' )
           ),
           array(
-            'label' => __( 'Dismissable', 'shortcode-ui' ),
+            'label' => __( 'Dismissable', '_csf' ),
             'attr' => 'dismissable',
             'type' => 'radio',
             'options' => array(
               '' => 'false',
               'true' => 'true'
             ),
-            'description'  => __( 'If the alert should be dismissable', 'shortcode-ui' )
+            'description'  => __( 'If the alert should be dismissable', '_csf' )
           ),
           array(
-            'label'  => __( 'Extra Class(es)', 'shortcode-ui' ),
+            'label'  => __( 'Extra Class(es)', '_csf' ),
             'attr'   => 'xclass',
             'type'   => 'text',
-            'description'  => __( 'Any extra classes you want to add', 'shortcode-ui' )
+            'description'  => __( 'Any extra classes you want to add', '_csf' )
           ),
           array(
             'label' => __('Data attribute(s)'),
             'attr' => 'data',
             'type' => 'text',
-            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', 'shortcode-ui'),
+            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', '_csf'),
             'meta'   => array(
-              'placeholder' => __( 'attribute,value|another-attr,value', 'shortcode-ui' )
+              'placeholder' => __( 'attribute,value|another-attr,value', '_csf' )
             )
           )
         )
@@ -853,14 +853,14 @@ function shortcode_ui_register_shortcodes() {
      */
     shortcode_ui_register_for_shortcode( 'panel', 
       array(
-      'label' => __( 'BS panel', 'shortcode-ui' ),
+      'label' => __( 'BS panel', '_csf' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
-          'label'        => __( 'Content', 'shortcode-ui' )
+          'label'        => __( 'Content', '_csf' )
         ),
         'attrs' => array(
           array(
-            'label' => __( 'Type', 'shortcode-ui' ),
+            'label' => __( 'Type', '_csf' ),
             'attr' => 'type',
             'type' => 'select',
             'options' => array(
@@ -872,43 +872,43 @@ function shortcode_ui_register_shortcodes() {
               'danger' => 'danger'
             ),
             'multiple' => false,
-            'description'  => __( 'The type of the panel', 'shortcode-ui' )
+            'description'  => __( 'The type of the panel', '_csf' )
           ),
           array(
-            'label'  => __( 'Heading', 'shortcode-ui' ),
+            'label'  => __( 'Heading', '_csf' ),
             'attr'   => 'heading',
             'type'   => 'text',
-            'description'  => __( 'The panel heading', 'shortcode-ui' )
+            'description'  => __( 'The panel heading', '_csf' )
           ),
           array(
-            'label' => __( 'Title', 'shortcode-ui' ),
+            'label' => __( 'Title', '_csf' ),
             'attr' => 'title',
             'type' => 'radio',
             'options' => array(
               '' => 'false',
               'true' => 'true'
             ),
-            'description'  => __( 'Whether the panel heading should have a title tag around it', 'shortcode-ui' )
+            'description'  => __( 'Whether the panel heading should have a title tag around it', '_csf' )
           ),
           array(
-            'label'  => __( 'Footer', 'shortcode-ui' ),
+            'label'  => __( 'Footer', '_csf' ),
             'attr'   => 'footer',
             'type'   => 'text',
-            'description'  => __( 'The panel footer text if desired ', 'shortcode-ui' )
+            'description'  => __( 'The panel footer text if desired ', '_csf' )
           ),
           array(
-            'label'  => __( 'Extra Class(es)', 'shortcode-ui' ),
+            'label'  => __( 'Extra Class(es)', '_csf' ),
             'attr'   => 'xclass',
             'type'   => 'text',
-            'description'  => __( 'Any extra classes you want to add', 'shortcode-ui' )
+            'description'  => __( 'Any extra classes you want to add', '_csf' )
           ),
           array(
             'label' => __('Data attribute(s)'),
             'attr' => 'data',
             'type' => 'text',
-            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', 'shortcode-ui'),
+            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', '_csf'),
             'meta'   => array(
-              'placeholder' => __( 'attribute,value|another-attr,value', 'shortcode-ui' )
+              'placeholder' => __( 'attribute,value|another-attr,value', '_csf' )
             )
           )
         )
@@ -920,14 +920,14 @@ function shortcode_ui_register_shortcodes() {
      */
     shortcode_ui_register_for_shortcode( 'well', 
       array(
-      'label' => __( 'BS well', 'shortcode-ui' ),
+      'label' => __( 'BS well', '_csf' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
-          'label'        => __( 'Content', 'shortcode-ui' )
+          'label'        => __( 'Content', '_csf' )
         ),
         'attrs' => array(
           array(
-            'label' => __( 'Size', 'shortcode-ui' ),
+            'label' => __( 'Size', '_csf' ),
             'attr' => 'size',
             'type' => 'select',
             'options' => array(
@@ -936,21 +936,21 @@ function shortcode_ui_register_shortcodes() {
               'lg' => 'lg'
             ),
             'multiple' => false,
-            'description'  => __( 'Modifies the amount of padding inside the well', 'shortcode-ui' )
+            'description'  => __( 'Modifies the amount of padding inside the well', '_csf' )
           ),
           array(
-            'label'  => __( 'Extra Class(es)', 'shortcode-ui' ),
+            'label'  => __( 'Extra Class(es)', '_csf' ),
             'attr'   => 'xclass',
             'type'   => 'text',
-            'description'  => __( 'Any extra classes you want to add', 'shortcode-ui' )
+            'description'  => __( 'Any extra classes you want to add', '_csf' )
           ),
           array(
             'label' => __('Data attribute(s)'),
             'attr' => 'data',
             'type' => 'text',
-            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', 'shortcode-ui'),
+            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', '_csf'),
             'meta'   => array(
-              'placeholder' => __( 'attribute,value|another-attr,value', 'shortcode-ui' )
+              'placeholder' => __( 'attribute,value|another-attr,value', '_csf' )
             )
           )
         )
@@ -962,20 +962,20 @@ function shortcode_ui_register_shortcodes() {
      */
     shortcode_ui_register_for_shortcode( 'tooltip', 
       array(
-      'label' => __( 'BS tooltip', 'shortcode-ui' ),
+      'label' => __( 'BS tooltip', '_csf' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
-          'label'        => __( 'Content', 'shortcode-ui' )
+          'label'        => __( 'Content', '_csf' )
         ),
         'attrs' => array(
           array(
-            'label' => __( 'Title', 'shortcode-ui' ),
+            'label' => __( 'Title', '_csf' ),
             'attr' => 'title',
             'type' => 'text',
-            'description'  => __( 'The text of the tooltip', 'shortcode-ui' )
+            'description'  => __( 'The text of the tooltip', '_csf' )
           ),
           array(
-            'label' => __( 'Placement', 'shortcode-ui' ),
+            'label' => __( 'Placement', '_csf' ),
             'attr' => 'placement',
             'type' => 'select',
             'options' => array(
@@ -985,23 +985,23 @@ function shortcode_ui_register_shortcodes() {
               'right' => 'right'
             ),
             'multiple' => false,
-            'description'  => __( 'The placement of the tooltip', 'shortcode-ui' )
+            'description'  => __( 'The placement of the tooltip', '_csf' )
           ),
           array(
-            'label' => __( 'Animation', 'shortcode-ui' ),
+            'label' => __( 'Animation', '_csf' ),
             'attr' => 'animation',
             'type' => 'text',
-            'description'  => __( 'Apply a CSS fade transition to the tooltip', 'shortcode-ui' )
+            'description'  => __( 'Apply a CSS fade transition to the tooltip', '_csf' )
           ),
           array(
-            'label' => __( 'Html', 'shortcode-ui' ),
+            'label' => __( 'Html', '_csf' ),
             'attr' => 'html',
             'type' => 'radio',
             'options' => array(
               '' => 'false',
               'true' => 'true'
             ),
-            'description'  => __( 'Insert HTML into the tooltip', 'shortcode-ui' )
+            'description'  => __( 'Insert HTML into the tooltip', '_csf' )
           )
         )
       )
@@ -1012,26 +1012,26 @@ function shortcode_ui_register_shortcodes() {
      */
     shortcode_ui_register_for_shortcode( 'popover', 
       array(
-      'label' => __( 'BS popover', 'shortcode-ui' ),
+      'label' => __( 'BS popover', '_csf' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
-          'label'        => __( 'Content', 'shortcode-ui' )
+          'label'        => __( 'Content', '_csf' )
         ),
         'attrs' => array(
           array(
-            'label' => __( 'Title', 'shortcode-ui' ),
+            'label' => __( 'Title', '_csf' ),
             'attr' => 'title',
             'type' => 'text',
-            'description'  => __( 'The title of the popover', 'shortcode-ui' )
+            'description'  => __( 'The title of the popover', '_csf' )
           ),
           array(
-            'label' => __( 'Text', 'shortcode-ui' ),
+            'label' => __( 'Text', '_csf' ),
             'attr' => 'text',
             'type' => 'text',
-            'description'  => __( 'The text of the popover', 'shortcode-ui' )
+            'description'  => __( 'The text of the popover', '_csf' )
           ),
           array(
-            'label' => __( 'Placement', 'shortcode-ui' ),
+            'label' => __( 'Placement', '_csf' ),
             'attr' => 'placement',
             'type' => 'select',
             'options' => array(
@@ -1041,23 +1041,23 @@ function shortcode_ui_register_shortcodes() {
               'right' => 'right'
             ),
             'multiple' => false,
-            'description'  => __( 'The placement of the popover', 'shortcode-ui' )
+            'description'  => __( 'The placement of the popover', '_csf' )
           ),
           array(
-            'label' => __( 'Animation', 'shortcode-ui' ),
+            'label' => __( 'Animation', '_csf' ),
             'attr' => 'animation',
             'type' => 'text',
-            'description'  => __( 'Apply a CSS fade transition to the popover', 'shortcode-ui' )
+            'description'  => __( 'Apply a CSS fade transition to the popover', '_csf' )
           ),
           array(
-            'label' => __( 'Html', 'shortcode-ui' ),
+            'label' => __( 'Html', '_csf' ),
             'attr' => 'html',
             'type' => 'radio',
             'options' => array(
               '' => 'false',
               'true' => 'true'
             ),
-            'description'  => __( 'Insert HTML into the popover', 'shortcode-ui' )
+            'description'  => __( 'Insert HTML into the popover', '_csf' )
           )
         )
       )
@@ -1068,79 +1068,79 @@ function shortcode_ui_register_shortcodes() {
      */
     shortcode_ui_register_for_shortcode( 'table-wrap', 
       array(
-      'label' => __( 'BS table-wrap', 'shortcode-ui' ),
+      'label' => __( 'BS table-wrap', '_csf' ),
         'listItemImage' => '<img src="http://getbootstrap.com/apple-touch-icon.png" alt="Bootstrap">',  
         'inner_content' => array(
-          'label'        => __( 'Content', 'shortcode-ui' ),
-          'description'  => esc_html__( 'Standard HTML table code goes here. Including opening (<table>) and closing (</table>) tags.', 'shortcode-ui' ),
+          'label'        => __( 'Content', '_csf' ),
+          'description'  => esc_html__( 'Standard HTML table code goes here. Including opening (<table>) and closing (</table>) tags.', '_csf' ),
           'meta'   => array(
             'placeholder' => $tableMarkup
           )
         ),
         'attrs' => array(
           array(
-            'label' => __( 'Bordered', 'shortcode-ui' ),
+            'label' => __( 'Bordered', '_csf' ),
             'attr' => 'bordered',
             'type' => 'radio',
             'options' => array(
               '' => 'false',
               'true' => 'true'
             ),
-            'description'  => __( 'Set "bordered" table style (see Bootstrap documentation)', 'shortcode-ui' )
+            'description'  => __( 'Set "bordered" table style (see Bootstrap documentation)', '_csf' )
           ),
           array(
-            'label' => __( 'Striped', 'shortcode-ui' ),
+            'label' => __( 'Striped', '_csf' ),
             'attr' => 'striped',
             'type' => 'radio',
             'options' => array(
               '' => 'false',
               'true' => 'true'
             ),
-            'description'  => __( 'Set "striped" table style (see Bootstrap documentation)', 'shortcode-ui' )
+            'description'  => __( 'Set "striped" table style (see Bootstrap documentation)', '_csf' )
           ),
           array(
-            'label' => __( 'Hover', 'shortcode-ui' ),
+            'label' => __( 'Hover', '_csf' ),
             'attr' => 'hover',
             'type' => 'radio',
             'options' => array(
               '' => 'false',
               'true' => 'true'
             ),
-            'description'  => __( 'Set "hover" table style (see Bootstrap documentation)', 'shortcode-ui' )
+            'description'  => __( 'Set "hover" table style (see Bootstrap documentation)', '_csf' )
           ),
           array(
-            'label' => __( 'Condensed', 'shortcode-ui' ),
+            'label' => __( 'Condensed', '_csf' ),
             'attr' => 'condensed',
             'type' => 'radio',
             'options' => array(
               '' => 'false',
               'true' => 'true'
             ),
-            'description'  => __( 'Set "condensed" table style (see Bootstrap documentation)', 'shortcode-ui' )
+            'description'  => __( 'Set "condensed" table style (see Bootstrap documentation)', '_csf' )
           ),
           array(
-            'label' => __( 'Responsive', 'shortcode-ui' ),
+            'label' => __( 'Responsive', '_csf' ),
             'attr' => 'responsive',
             'type' => 'radio',
             'options' => array(
               '' => 'false',
               'true' => 'true'
             ),
-            'description'  => __( 'Wrap the table in a div with the class "table-responsive" (see Bootstrap documentation)', 'shortcode-ui' )
+            'description'  => __( 'Wrap the table in a div with the class "table-responsive" (see Bootstrap documentation)', '_csf' )
           ),
           array(
-            'label'  => __( 'Extra Class(es)', 'shortcode-ui' ),
+            'label'  => __( 'Extra Class(es)', '_csf' ),
             'attr'   => 'xclass',
             'type'   => 'text',
-            'description'  => __( 'Any extra classes you want to add', 'shortcode-ui' )
+            'description'  => __( 'Any extra classes you want to add', '_csf' )
           ),
           array(
             'label' => __('Data attribute(s)'),
             'attr' => 'data',
             'type' => 'text',
-            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', 'shortcode-ui'),
+            'description' => __( 'Data attribute and value pairs separated by a comma. Pairs separated by pipe', '_csf'),
             'meta'   => array(
-              'placeholder' => __( 'attribute,value|another-attr,value', 'shortcode-ui' )
+              'placeholder' => __( 'attribute,value|another-attr,value', '_csf' )
             )
           )
         )
